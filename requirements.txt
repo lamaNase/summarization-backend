@@ -1,6 +1,5 @@
 Flask
 flask-cors
-camel-tools
 PyArabic
 KeyBERT
 transformers
