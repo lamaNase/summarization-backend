@@ -3,7 +3,6 @@ from nltk.stem.isri import ISRIStemmer
 from nltk.corpus import stopwords
 import pyarabic.araby as araby
 
-
 def ISRI_Stemmer(text):
     #making an object
     stemmer = ISRIStemmer()

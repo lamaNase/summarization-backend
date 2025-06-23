@@ -1,5 +1,4 @@
 import os
-import json
 import re
 import numpy as np
 import math
@@ -7,7 +6,6 @@ import logging
 import warnings
 from tqdm import tqdm
 from preprocessing.preprocess import normalize_arabic
-
 
 def extract_keyphrases(preprocessed_dl_sentences, kw_extractor=None):
     """

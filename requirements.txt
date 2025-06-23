@@ -3,3 +3,4 @@ flask-cors
 PyArabic
 nltk
 numpy
+networkx

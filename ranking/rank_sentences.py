@@ -1,4 +1,3 @@
-import os
 import numpy as np
 from graph_construction.build_graph import load_json_file
 
