@@ -18,6 +18,11 @@ def extract_keyphrases(preprocessed_dl_sentences, kw_extractor=None):
     Returns:
         dict: Nested dictionary {paragraph_index: {sentence_index: normalized_score}}
     """
+    import os
+    import warnings
+    import logging
+    from tqdm import tqdm
+
     # Suppress verbose output
     os.environ['TOKENIZERS_PARALLELISM'] = 'false'
     warnings.filterwarnings('ignore')
@@ -36,6 +41,18 @@ def extract_keyphrases(preprocessed_dl_sentences, kw_extractor=None):
     if N == 0:
         print("⚠️ No valid sentences found for keyphrase extraction.")
         return {}
+
+    # If kw_extractor is None, return zeros for all sentences
+    if kw_extractor is None:
+        print("⚠️ kw_extractor is None. Returning zero scores for all sentences.")
+        zero_results = {}
+        for para_index, sentences in preprocessed_dl_sentences.items():
+            if para_index == "0":
+                continue
+            zero_results[para_index] = {}
+            for sent_index in sentences:
+                zero_results[para_index][sent_index] = 0
+        return zero_results
 
     sentence_scores = {}
     for sent_id, sentence in tqdm(flattened_sentences.items(), desc="Extracting keyphrases", leave=False):
