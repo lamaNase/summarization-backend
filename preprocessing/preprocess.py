@@ -1,18 +1,8 @@
-import os
-import json
 import re
-import nltk
 from nltk.stem.isri import ISRIStemmer
 from nltk.corpus import stopwords
-from tqdm import tqdm
-import math
-from collections import defaultdict
 import pyarabic.araby as araby
-import torch
-import numpy as np
-from tqdm import tqdm
-import logging
-import warnings
+
 
 def ISRI_Stemmer(text):
     #making an object
