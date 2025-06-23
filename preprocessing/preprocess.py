@@ -1,4 +1,5 @@
 import re
+import nltk
 from nltk.stem.isri import ISRIStemmer
 from nltk.corpus import stopwords
 import pyarabic.araby as araby
