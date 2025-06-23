@@ -14,11 +14,11 @@ app = Flask(__name__)
 CORS(app)  # Allow all origins for simplicity; restrict in production
 
 # Load AraBERT model silently
-with tqdm(total=1, desc="Loading AraBERT model", leave=False) as pbar:
-    model = AutoModel.from_pretrained("aubmindlab/bert-base-arabertv02", 
-                                         return_dict=True)
-    kw_extractor = KeyBERT(model)
-    pbar.update(1)
+# with tqdm(total=1, desc="Loading AraBERT model", leave=False) as pbar:
+#     model = AutoModel.from_pretrained("aubmindlab/bert-base-arabertv02", 
+#                                          return_dict=True)
+#     kw_extractor = KeyBERT(model)
+#     pbar.update(1)
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
@@ -27,7 +27,7 @@ def summarize():
 
     # Step 1: Preprocessing and Feature Extraction
     original, preprocessed_dl, preprocessed_classical = preprocess_text(text)
-    keyphrase_scores = extract_keyphrases(preprocessed_dl, kw_extractor)
+    keyphrase_scores = extract_keyphrases(preprocessed_dl)
     combined_results = calculate_final_statistical_scores(
         "assetes/arabic_cue_words.txt",
         keyphrase_scores,

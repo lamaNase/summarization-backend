@@ -9,7 +9,7 @@ from tqdm import tqdm
 from preprocessing.preprocess import normalize_arabic
 
 
-def extract_keyphrases(preprocessed_dl_sentences, kw_extractor):
+def extract_keyphrases(preprocessed_dl_sentences, kw_extractor=None):
     """
     Extracts and normalizes keyphrase scores from preprocessed deep learning sentences.
 
