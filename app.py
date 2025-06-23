@@ -1,9 +1,6 @@
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from keybert import KeyBERT
-from transformers import AutoTokenizer, AutoModel
-from tqdm import tqdm
 from preprocessing.preprocess import preprocess_text
 from preprocessing.feature_extraction import extract_keyphrases
 from preprocessing.feature_extraction import calculate_final_statistical_scores
